@@ -2,6 +2,7 @@
   "name": "learn-game",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://faizaan.xyz/nations/learning/",
   "dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.6.1",
