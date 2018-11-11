@@ -5,6 +5,10 @@ import Sky from './Sky';
 import Ground from './Ground';
 import CannonBase from './CannonBase';
 import CannonPipe from './CannonPipe';
+import CannonBall from './CannonBall';
+import CurrentScore from './CurrentScore';
+import FlyingObject from './FlyingObject';
+import Heart from './Heart';
 
 const Canvas = (props) => {
     const viewBox = [
@@ -19,14 +23,28 @@ const Canvas = (props) => {
             id="game-canvas"
             preserveAspectRatio="xMaxYMax none"
             onMouseMove={props.trackMouse}
+            onTouchMove={props.trackMouse}
             viewBox={viewBox}>
+            <defs>
+                <filter id="shadow">
+                    <feDropShadow dx="1" dy="1" stdDeviation="2"></feDropShadow>
+                </filter>
+            </defs>
+
             <Sky />
             <Ground />
             <CannonPipe rotation={props.angle}/>
             <CannonBase />
+            <CannonBall position={{x: 0, y:-100}}/>
+            <CurrentScore score={15} />
+            <FlyingObject position={{x: -150, y: -300}}/>
+            <FlyingObject position={{x: 150, y: -300}}/>
+            <Heart position={{x: -300, y: 35}} />
+            <Heart position={{x: -360, y: 35}} />
+            <Heart position={{x: -420, y: 35}} />
+            <Heart position={{x: -480, y: 35}} />
         </svg>
     );
-
 };
 
 Canvas.propTypes = {
